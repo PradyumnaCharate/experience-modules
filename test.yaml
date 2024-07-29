@@ -1,0 +1,37 @@
+config:
+  target: 'https://api.elansoltech.in/api'
+  phases:
+    - duration: 120
+      arrivalRate: 5
+      maxVusers: 200
+scenarios:
+  - flow:
+      - post:
+          url: '/users/login'
+          json:
+            email: 'demo@elansoltech.com'
+            password: 'elansoltech'
+          capture:
+            json: '$.data.token'
+            as: 'token'
+            strict: true
+
+      - get:
+          url: '/sops'
+          headers:
+            Authorization: '{{ token }}'
+      - get:
+          url: '/organizations'
+          headers:
+            Authorization: '{{ token }}'
+      - get:
+          url: '/users'
+          headers:
+            Authorization: '{{ token }}'
+      - get:
+          url: '/roles'
+          headers:
+            Authorization: '{{ token }}'
+     
+
+    reporter: 'json'
