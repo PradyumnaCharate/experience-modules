@@ -7,4 +7,5 @@ Also elastic search function has been added to common service in common folder,p
 This function is used in product search api which is accepting query and searching through elastic search.
 Mongoose middleware is adding products to mongodb as well processing that same product to elastic search index called products.
 so products are getting saved their as well.so we can search in minimal time. I have completed all mentioned modules in email.
+Also It includes dynamic roles and permissions module so that only specific role can access specific routes according to his allocated permissions.This is for security so only person having respective permission can access the resources.
 If you have any doubt kindly feel free to ask me on my email pradyumnacharate1@gmail.com. 
