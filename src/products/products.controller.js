@@ -14,7 +14,7 @@ class productController extends Controller {
   }
   searchProducts = catchAsyncError(async (req, res, next) => {
     const { query } = req.body;
-    const data = await productService.searchWithPagination({
+    const data = await this.service.searchWithPagination({
       index: "products",
       currentPage: req.query?.currentPage || 1,
       resultsPerPage: req.query?.resultsPerPage || 10,
